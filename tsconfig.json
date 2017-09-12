@@ -1,0 +1,24 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "declaration": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "module": "es2015",
+    "moduleResolution": "node",
+    "noEmitOnError": true,
+    "noImplicitAny": false,
+    "rootDir": ".",
+    "sourceMap": true,
+    "target": "es5",
+    "lib": ["es6", "dom"],
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "noUnusedLocals": true,
+    "noUnusedParameters": true
+  },
+  "include": [
+    "./src/**/*.ts"
+  ]
+}
