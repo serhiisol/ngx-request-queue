@@ -44,7 +44,7 @@ export class QueueInterceptor implements HttpInterceptor {
       .catch((err: any) => {
         this.decrease();
 
-        return err;
+        return Observable.throw(err);
       });
   }
 
