@@ -1,7 +1,8 @@
 import { Injectable, Inject } from '@angular/core';
-import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpEventType } from '@angular/common/http';
+import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from '@angular/common/http';
 import { Debounce } from '@decorators/common';
 import { Observable } from 'rxjs/Observable';
+import { _finally } from 'rxjs/operator/finally';
 
 import { QUEUE_SERVICE } from './token';
 import { QueueService } from './queue.service';
@@ -28,24 +29,11 @@ export class QueueInterceptor implements HttpInterceptor {
   ) { }
 
   public intercept(req: HttpRequest<any>, delegate: HttpHandler): Observable<HttpEvent<any>> {
-    if (this.queueStarted === false) {
-      this.startQueue();
-    }
+    this.startQueue();
 
     this.pending += 1;
 
-    return delegate
-      .handle(req)
-      .do((event: HttpEvent<any>) => {
-        if (event.type === HttpEventType.Response) {
-          this.decrease();
-        }
-      })
-      .catch((err: any) => {
-        this.decrease();
-
-        return Observable.throw(err);
-      });
+    return _finally.call(delegate.handle(req), () => this.decrease());
   }
 
   /**
