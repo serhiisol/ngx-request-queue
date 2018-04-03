@@ -1,4 +1,4 @@
-# Angular 4.3.0+ Request Queue Module
+# Angular 5+ Request Queue Module
 
 This package provides ability to track queues of requests, e.g. if you need to display activity indicator during the requests.
 

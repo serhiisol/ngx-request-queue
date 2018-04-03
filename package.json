@@ -1,7 +1,7 @@
 {
   "name": "ngx-request-queue",
-  "version": "1.0.4",
-  "description": "Angular 4.3.0+ Request Queue handler module",
+  "version": "2.0.0",
+  "description": "Angular 5+ Request Queue handler module",
   "repository": "https://github.com/serhiisol/ngx-request-queue",
   "keywords": [
     "angular2",
