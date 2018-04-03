@@ -6,6 +6,7 @@ This package provides ability to track queues of requests, e.g. if you need to d
 
 ```
 npm install ngx-request-queue --save
+npm install @decorators/common --save
 ```
 
 ## Full example

@@ -12,15 +12,11 @@ export class QueueInterceptor implements HttpInterceptor {
 
   /**
    * Number of pending requests
-   *
-   * @private
    */
   private pending = 0;
 
   /**
    * Flag, that indicates whether queue is started or not
-   *
-   * @private
    */
   private queueStarted = false;
 
@@ -38,8 +34,6 @@ export class QueueInterceptor implements HttpInterceptor {
 
   /**
    * Publish event, that queue just started
-   *
-   * @private
    */
   private startQueue(): void {
     if (this.queueStarted === false) {
@@ -52,8 +46,6 @@ export class QueueInterceptor implements HttpInterceptor {
   /**
    * Publish event, that queue just started.
    * Debounced, just to be sure, that following request won't trigger any side effects.
-   *
-   * @private
    */
   @Debounce(300)
   private finishQueue(): void {

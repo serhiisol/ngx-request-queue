@@ -1,3 +1,7 @@
 # dependencies
 node_modules
 lib
+
+# temp
+dist
+dist.tgz
